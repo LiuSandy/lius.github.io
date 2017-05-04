@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public1.css' ?>">
+	<title>Document</title>
+	<style type="text/css">
+		span {
+			color : #f00;
+		}
+	</style>
+</head>
+<body>
+	<form action="<?php echo site_url('ChangeInfor/edit') ?>" method="POST" enctype="multipart/form-data">
+		<table class="table">
+			<tr>
+				<td class="th" colspan="10">编辑栏目</td>
+			</tr>
+			<tr>
+				<td>用户名</td>
+				<td><input type="test" name="username" value="<?php echo $user[0]['username']; ?>" />
+					<?php echo form_error('username', '<span>', '</span>'); ?>
+				</td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td><input type="test" name="sex" value="<?php echo $user[0]['sex']; ?>" />
+					<?php echo form_error('sex', '<span>', '</span>'); ?>
+				</td>
+			</tr>
+			<tr>
+				<td>QQ</td>
+				<td><input type="test" name="QQ" value="<?php echo $user[0]['QQ']; ?>" />
+					<?php echo form_error('QQ', '<span>', '</span>'); ?>
+				</td>
+			</tr>
+			<tr>
+				<input type="hidden" name="uid" value="<?php echo $user[0]['uid'] ?>" />
+				<td colspan="10"><input type="submit" value="确定" class="input_button" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

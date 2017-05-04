@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>首页左侧导航</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/public.css" />
+	<link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/font-awesome.min.css">
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/public.js"></script>
+
+<head>
+
+<body>
+	<!-- 左边节点 -->
+	<div class="btn-group-vertical leftsidebar_box" role="group">
+		<a href="<?php echo site_url('IndexAdmin/loadmain'); ?>" target="main"><div class="line">
+				<i class="fa fa-home fa-2x" style="color:#ddd;"></i>&nbsp;&nbsp;首页
+			</div></a>
+		<dl class="system_log">
+			<dt>
+				<img class="icon1" src="<?php echo base_url() . 'style/admin/'; ?>img/coin03.png" /><img class="icon2"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin04.png" /> 分类管理<img class="icon3"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin19.png" /><img class="icon4"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin20.png" />
+			</dt>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a class="cks" href="<?php echo site_url('BaosheAdmin/index'); ?>" target="main">报社管理</a><img class="icon5" src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a class="cks" href="<?php echo site_url('BaozhiAdmin/index'); ?>" target="main">报纸管理</a><img class="icon5" src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+		</dl>
+		<dl class="system_log">
+			<dt>
+				<img class="icon1" src="<?php echo base_url() . 'style/admin/'; ?>img/coin15.png" /><img class="icon2"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin16.png" /> 资源管理<img class="icon3"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin19.png" /><img class="icon4"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin20.png" />
+			</dt>
+			<!-- <dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a href="<?php echo site_url('Adminziyuan/pdftohtml'); ?>"
+					target="main" class="cks">PDF转换</a><img class="icon5"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd> -->
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a href="<?php echo site_url('Adminziyuan/index'); ?>"
+					target="main" class="cks">资源查看</a><img class="icon5"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+		</dl>
+		<dl class="system_log">
+			<dt>
+				<img class="icon1" src="<?php echo base_url() . 'style/admin/'; ?>img/coin05.png" /><img class="icon2"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin06.png" /> 特效管理<img class="icon3"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin19.png" /><img class="icon4"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin20.png" />
+			</dt>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a class="cks" href="<?php echo site_url('Admintexiao/index'); ?>"
+					target="main">特效修改</a><img class="icon5" src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+		</dl>
+		<dl class="system_log">
+			<dt>
+				<img class="icon1" src="<?php echo base_url() . 'style/admin/'; ?>img/coin07.png" /><img class="icon2"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin08.png" /> 用户管理<img class="icon3"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin19.png" /><img class="icon4"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin20.png" />
+			</dt>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a href="<?php echo site_url('UserManAdmin/index'); ?>" target="main"
+					class="cks">用户管理</a><img class="icon5" src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a href="<?php echo site_url('MessageAdmin/index'); ?>" target="main"
+					class="cks">留言列表</a><img class="icon5" src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a href="<?php echo site_url('AdminChange/change'); ?>"
+					target="main" class="cks">个人设置</a><img class="icon5"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+		</dl>
+		<dl class="system_log">
+			<dt>
+				<img class="icon1" src="<?php echo base_url() . 'style/admin/'; ?>img/coinL1.png" /><img class="icon2"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coinL2.png" /> 系统管理<img class="icon3"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin19.png" /><img class="icon4"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin20.png" />
+			</dt>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a href="<?php echo site_url('indexPage/index'); ?>"
+					target="index" class="cks">前台首页</a><img class="icon5"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+			<dd>
+				<img class="coin11" src="<?php echo base_url() . 'style/admin/'; ?>img/coin111.png" /><img class="coin22"
+					src="<?php echo base_url() . 'style/admin/'; ?>img/coin222.png" /><a href="<?php echo site_url('Adminxitong/login'); ?>" target="_parent">退出</a><img
+					class="icon5" src="<?php echo base_url() . 'style/admin/'; ?>img/coin21.png" />
+			</dd>
+		</dl>
+	</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>阅览室</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+ <!--    <link rel="stylesheet" type="text/css" href="<?php echo base_url('style/index/bg')?>/css/bootstrop.min.css"/> -->
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/index/'; ?>view/css/style.css" type="text/css" media="screen">
+     <link rel="stylesheet" href="<?php echo base_url() . 'style/index/'; ?>view/css/jquery.mobile-1.4.5.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/index/'; ?>view/css/animsition.min.css">
+    <script src="<?php echo base_url() . 'style/index/'; ?>view/js/jquery.min.js"></script>
+    <script src="<?php echo base_url() . 'style/index/'; ?>view/js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="<?php echo base_url() . 'style/index/'; ?>view/js/animsition.min.js"></script>
+    <style>
+        .animsition,.animsition-overlay {
+            position: inherit;
+        }
+    </style>
+
+</head>
+<body style="overflow: hidden">
+
+<div data-role="header">
+
+    <ul id="nav">
+
+        <!-- 返回主页 -->
+        <li><a data-ajax="false" href="<?php echo site_url('IndexPage/index');?>">主页</a></li>
+
+        <!-- 返回书架 -->
+        <li><a data-ajax="false" href="<?php echo site_url('IndexBookcase/Bookcase');?>">书架</a></li>
+        <!-- 留言 -->
+        <li><a data-ajax="false" href="<?php echo site_url('IndexMessage/index?power=1');?>">个人中心</a></li>
+        <!-- 选择上页翻页方式 -->
+
+        <?php if($count!=0){?>
+        <li><a data-ajax="true" href="<?php echo site_url('IndexView/show') . '/' . $nsid[0]['nsid'] . '?index=';
+        if($nsid[0]['layoutindex']!=1)
+        {
+           echo $nsid[0]['layoutindex'] - 1;
+        }
+        else
+        {
+            echo 1;
+        }
+        if(isset($_GET['date']))
+        {
+        echo '&date='.$_GET['date'];
+        }
+
+         ?>"
+               class="animsition-link"
+             >上一版</a>
+
+        </li>
+        <!-- 选择下页翻页方式 -->
+        <li><a data-ajax="true" href="<?php echo site_url('IndexView/show').'/'.$nsid[0]['nsid'].'?index=';
+                    if($nsid[0]['layoutindex'] >= $count){
+                        echo $count;
+                    }else{
+                        echo $nsid[0]['layoutindex'] + 1;
+                    }
+                     if(isset($_GET['date']))
+        {
+        echo '&date='.$_GET['date'];
+        }
+                    ?>"
+               class="animsition-link"
+          >下一版</a>
+        </li>
+        <li>
+            <select onchange="window.location=this.value">
+                <?php foreach($layout as $v): ?>
+                <option value="<?php echo site_url('IndexView/show').'/'.$nsid[0]['nsid'].'?index=';
+                    echo $v['layoutindex'];if(isset($_GET['date'])){echo '&date='.$_GET['date'];}?>"><?php echo $v['layout'] ?>
+                    </a>
+                </option>
+                <?php endforeach ?>
+            </select>
+        </li>
+    </ul>
+    </div>
+    <iframe src="<?php echo base_url() . $nsid[0]['path'] ?>" id="news" class="animsition-overlay" data-role="page" data-position="fixed" data-fullscreen="true" frameborder="0" >
+    </iframe>
+
+<?php }else echo '抱歉暂无报纸' ?>
+
+</body>
+<script>
+   //  $(document).on("click", "#main-page", function () {  
+   // $.mobile.changePage({url:"<?php echo site_url('IndexPage/index');?>" , type:"get"});
+   //      });
+   $(document).ready(function() {
+       $(".animsition-overlay").animsition({
+           inClass: ' <?php $this->load->model('Skin_model', 'choose');$data = $this->choose->spath();$sid = array_rand($data,1);
+           $sid +=11;
+       $spath = $this->choose->check($sid);
+
+       echo trim($spath[0]['spath']);?>',
+
+       overlay : false,
+           overlayClass : 'animsition-overlay-slide',
+           overlayParentElement : 'body'
+       });
+   });
+
+//    $(document).on('click','#skin',function () {
+//        var result=$('#skin optgroup:selected').text();
+//        console.log(result);
+//    });
+//   $('#skin').change(function(){
+//       var result=$('#skin option:selected').text();
+//       console.log(result);
+////       result=trim(result);
+////       $('#news').attr('data-animsition-in',result);
+//   });
+</script>
+</html>
+

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>报刊室</title>
+    <style type="text/css">
+      .panel-heading{
+         background-color: #FFD29B;
+        }
+    </style>
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/index/bg/'; ?>css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/index/bg/'; ?>css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/index/bg/'; ?>css/goodteacher.css"/> 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/index/bg/'; ?>css/style.css"/>
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/index/bg/'; ?>css/calendar.css">
+    <style type="text/css">
+        ul, ol, li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .calendar-hd{padding-top:0px;}
+    </style> 
+    <style type="text/css">
+        .case{
+            margin-top: 7%;
+        }
+        th{
+            text-align: center;
+        }
+        .top{margin-bottom: 6%;}
+        #go-top {
+          width: 53px;
+          height: 53px;
+          background: rgba(0, 0, 0, 0.2);
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          border-radius: 100px;
+          color: #fff;
+          font-size: 25px;
+          text-align: center;
+          padding-top: 12px;
+          padding-left: 2px;
+          transition: 0.3s ease-out;
+          opacity: 1;
+          transform: rotate(0deg);
+      }
+        .footer h3 {
+            color: #fff;
+        }
+        .footer p {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .footer span {
+            color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body id="photobg">
+    <!-- 头部导航条 -->
+    <div class="login-head container-fluid">
+        <div class="login-head-b col-md-12">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="<?php echo site_url('IndexPage/index'); ?>"><img src="<?php echo base_url() . 'style/index/bg/'; ?>img/favicon.ico"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="<?php echo site_url('IndexPage/index'); ?>">首页<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="<?php echo site_url('IndexBookcase/Bookcase'); ?>">书架</a></li>
+                    <li><a href="<?php echo site_url('IndexMessage/index?power=1'); ?>">个人中心</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><?php $usename = $this->session->userdata('username');
+                    if(!$usename){ ?>
+                        <a href="<?php echo site_url('IndexRelogin/index');?>">登陆</a>
+                    <?php }else{ ?>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $usename = $this->session->userdata('username'); ?><span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">评论</a></li>
+                        <li><a href="#">个人笔记</a></li>
+                        <li><a href="#">个人设置</a></li>
+                        <li><a href="<?php echo site_url('IndexRelogin/login_out'); ?>">退出</a></li>
+                      </ul>
+                      <?php } ?>
+                    </li>
+                    <li><a href="<?php echo site_url('IndexLogin/register'); ?>">注册</a></li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- 左边报纸摆放查看 -->
+        <div class="case col-md-8">
+            <div class="panel panel-def">
+                <div class="panel-heading"><a class="btn btn-default" href="<?php echo site_url('IndexBookcase/Bookcase') ?>" role="button">所有报纸</a></div>
+                <div class="panel-body">
+                <?php foreach($news as $v):?>
+                    <div class="top col-md-offset-1 col-xs-4 col-sm-2 col-md-3">
+                        <?php if(!isset($_GET['date'])){ ?>
+                            <a class="checkdetail" href="<?php echo site_url('IndexView/show/').'/' . $v['nsid']?>">
+                        <?php }else{ ?>
+                            <a class="checkdetail" href="<?php echo site_url('IndexView/show/') . '/' . $v['nsid'] .'?date='.$_GET['date']; ?>">
+                        <?php } ?>
+                            <div class="item item-type-double">
+                                <div class="item-hover">
+                                    <div class="item-info">
+                                        <div class="date"><?php echo $v['nsname'] ?></div>          
+                                        <div class="line"></div>            
+                                        <div class="headline"><?php echo date("Y-m-d",time()); ?></div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="mask"></div>
+                                </div>
+                                <div class="item-img"><img class="img-responsive" src="<?php echo base_url('style/index/bg/') . '/' . $v['imgPath']; ?>" alt=" " /></div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach ?>
+                </div>
+            </div>
+        </div>
+        <div class="case col-md-4">
+            <div class="panel panel-def">
+                <div class="panel-heading">
+                    <form id="form-search-book" class="form-inline" action="<?php echo site_url('IndexBookcase/seach');?>" method="get">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input id="search-book" required="" name="keyword" type="text" class="form-control" placeholder="报纸名" style="border-radius: 4px">
+                                <input id="search-date" name="date" type="hidden" value="<?php echo date('Y-m-d',time())?>">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="toolright panel-body">
+                        <div id="ca"></div>
+                </div>
+            </div>
+        </div>     
+    </div>
+    <!-- 底部内容 -->
+    <div class="footer" style="background: #262626;padding-left:0px;">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- 相关链接 -->
+                <div class="morelink col-xs-12 col-md-4" style="padding-left:0px;padding-right:0px;">
+                    <div class="wrap-photos col-md-offset-1 col-md-10">
+                        <h3><i class="fa fa-square" style="color:#DC143C"></i>&nbsp;&nbsp;更多报纸</h3>
+                        <ul class="list-photos">
+                            <li><a href="http://epaper.yzwb.net/html_t/<?php echo date('Y-m/d',time());?>/node_1.htm"><img
+                                    src="<?php echo base_url() . 'style/index/'; ?>images/image-26.jpg" alt=""
+                                    title=""/></a></li>
+                            <li>
+                                <a href="http://digitalpaper.stdaily.com/http_www.kjrb.com/kjrb/html/<?php echo date('Y-m/d',time());?>/node_2.htm"><img
+                                        src="<?php echo base_url() . 'style/index/'; ?>images/image-31.jpg" alt=""
+                                        title=""/></a></li>
+                            <li>
+                                <a href="http://newspaper.jfdaily.com/jfrb/html/<?php echo date('Y-m/d',time());?>/node_2.htm"><img
+                                        src="<?php echo base_url() . 'style/index/'; ?>images/image-27.jpg" alt=""
+                                        title=""/></a></li>
+                            <li><a href="http://epaper.comnews.cn/read-2363.html"><img
+                                    src="<?php echo base_url() . 'style/index/'; ?>images/image-34.jpg" alt=""
+                                    title=""/></a></li>
+                            <li>
+                                <a href="http://paper.people.com.cn/rmrb/html/<?php echo date('Y-m/d',time());?>/nbs.D110000renmrb_01.htm"><img
+                                        src="<?php echo base_url() . 'style/index/'; ?>images/image-24.jpg" alt=""
+                                        title=""/></a></li>
+                            <li>
+                                <a href="http://jlrbszb.chinajilin.com.cn/html/<?php echo date('Y-m/d',time());?>/node_267.htm"><img
+                                        src="<?php echo base_url() . 'style/index/'; ?>images/image-25.jpg" alt=""
+                                        title=""/></a></li>
+                            <li><a href="http://paper.jyb.cn/zgjyb/html/<?php echo date('Y-m/d',time());?>/node_2.htm"><img
+                                    src="<?php echo base_url() . 'style/index/'; ?>images/image-32.jpg" alt=""
+                                    title=""/></a></li>
+                            <li><a href="http://www.gfic.cn/"><img
+                                    src="<?php echo base_url() . 'style/index/'; ?>images/image-33.jpg" alt=""
+                                    title=""/></a></li>
+                        </ul>
+                        <a href="http://www.dx286.com/index.html" class="view-more">浏览更多</a>
+                    </div>
+                </div>
+                <!-- 关于系统 -->
+                <div class="aboutsys col-xs-12 col-md-4">
+
+                    <h3><i class="fa fa-square" style="color:#FFD700"></i>&nbsp;&nbsp;关于系统</h3>
+                    <p>
+                        此系统通过数据采集在各大报刊杂志媒体网站收集报刊杂志PDF文件，将PDF文件转换成体积小、和报纸原有排版一致、整体排版无错位、字体清晰、可放大不失真的html文件，并支持多终端、多分辨率的完美显示，同时也可以由用户自己检索、分享、浏览任何信息。并在长时间无人操作时自动进行版面轮换，页面实现类似幻灯片切换效果。</p>
+
+                </div>
+                <!-- 联系我们 -->
+                <div class="call col-xs-12 col-md-4">
+                    <h3><i class="fa fa-square" style="color:#32CD32"></i>&nbsp;&nbsp;联系我们</h3>
+                    <span class="header col-md-10"><i class="fa fa-qq"></i>&nbsp;&nbsp;&nbsp;&nbsp;2813549097</span><br>
+                    <span class="col-md-10"><i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;2813549097@qq.com</span><br>
+                    <span class="col-md-10"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;辽宁省沈阳市沈北新区沈北路53号，</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="map container-fluid">
+        <p>版权所有：辽宁省沈阳市沈北新区沈北路53号 @ 沈阳北软信息职业技术学院</p>
+    </div>
+    <a style="display: block;" id="go-top" class="fa fa-chevron-up" href="javascript:void(0);"></a>
+<script type="text/javascript" src="<?php echo base_url() . 'style/index/bg/'; ?>js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() . 'style/index/bg/'; ?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url() . 'style/index/bg/'; ?>js/calendar.js"></script>
+<script type="text/javascript" src="<?php echo base_url() . 'style/index/bg/'; ?>js/main.js"></script>
+<script>
+    $('#ca').calendar({
+        width: 335,
+        height: 335,  
+        onSelected: function (view, date) {
+        var d = new Date(date);  
+        date=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+            console.log(date);
+        $('#search-date').val(date);
+            var book = $('#search-book').val();
+            if(book.length>=3) {
+                $('#form-search-book').submit();
+            }else{
+                alert('请输入正确的报纸名');
+            }
+
+
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function(){
+        var table = $('.toolright').find('table');
+        table.addClass('table');
+    });
+</script>
+</body>
+</html>

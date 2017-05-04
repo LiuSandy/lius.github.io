@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="<?php echo base_url('style/index/note/') ?>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url('style/index/note/') ?>/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/index/bg/'; ?>css/goodteacher.css"/>
+    <style type="text/css">
+        ul{list-style:none;}
+        .top{margin-top:5%;}
+        h2{text-align: center;margin-top: 2%;}
+
+        #topTags{border-bottom:1px solid #ddd;}
+        #topTags ul li{margin:2%;float:left;display:block;text-align:center;cursor:pointer;border:1px solid rgb(255, 204, 0); border-radius:4px;}
+        #leftMenu{float:left}
+        #leftMenu ul{margin:10px;}
+        #leftMenu ul li{display:block;background:#FF8C00;border:1px solid #FF8C00; border-radius:4px;cursor:pointer;line-height:30px;text-align:center;margin-bottom:5px;}
+        #leftMenu ul li a{color:#000000;text-decoration:none;}
+        #content{float:left}
+        .content{display:none;padding:5px;overflow-y:auto;line-height:30px;}
+        .content1 {display:block;padding:5px;overflow-y:auto;line-height:30px;}
+        </style>
+</head>
+<body id="photobg">
+<div class="login-head container-fluid">
+    <div class="login-head-b col-md-12">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?php echo site_url('IndexPage/index'); ?>"><img src="<?php echo base_url() . 'style/index/bg/'; ?>img/favicon.ico"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="<?php echo site_url('IndexPage/index'); ?>">首页</a></li>
+                        <li><a href="<?php echo site_url('IndexBookcase/Bookcase'); ?>">书架</a></li>
+                        <li><a href="<?php echo site_url('IndexRelogin/login_out'); ?>">退出</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</div>
+<div class="top container-fluid">
+    <div class="col-md-2" id="leftMenu">
+        <div class="panel panel-default">
+           <div class="panel-heading">个人中心</div>
+           <ul style="padding-left: 0px;">
+               <li><div class="panel-body">评论区</div></li>
+               <li><div class="panel-body">笔记</div></li>
+               <li><div class="panel-body">个人设置</div></li>
+           </ul>     
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="col-md-12">
+            <div class="col-md-12" id="topTags">
+                <ul>
+                </ul>
+            </div>
+        </div>
+        <div id="main" class="col-md-12">        
+            <div id="content" class="col-md-12">
+            <div id="welcome" class="content col-md-12" style="display:block;">
+                
+            </div>
+            <div id="c0" class="content">
+                <div class="col-xs-12 col-sm-12 col-md-10">
+                    <form action="<?php echo site_url('IndexNote/add'); ?>" method="POST" enctype="multipart/form-data">
+                        <div class="col-xs-12 col-sm-12 col-sm-12">
+                            <textarea class="form-control" id="comment" name="content" placeholder="发表评论" cols="80" rows="4"></textarea>
+                            <br>
+                            <button class="btn btn-default" type="submit" style="float:right;">发表</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-10" style="margin-top:5%">
+                    <?php foreach($content as $v):?>
+                    <div class="panel panel-def">
+                        <div class="panel-heading"><?php echo $v['username']?></div>
+                        <div class="panel-body">
+                            <?php echo $v['content']?>
+                        </div>
+                    </div>
+                    <?php endforeach ?>
+                    <br><br>
+                </div>
+            </div>
+            <div id="c1" class="content">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <?php foreach($note as $v): ?>
+                    <div class="panel panel-def">
+                        <div class="panel-heading"><?php echo date("Y-m-d",$v['date'])?></div>
+                        <div class="panel-body">
+                            <?php echo $v['note'] ?>
+                        </div>
+                        <div class="panel-footer"><?php echo $v['noname'] ?></div>
+                    </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div id="c2" class="content">
+                <div class="col-xs-12 col-sm-12 col-md-10">
+                    <div class="panel panel-def">
+                        <div class="panel-heading">修改密码</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" action="<?php echo site_url('IndexNote/change_passwd') ?>" method="POST">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="username" class="form-control" id="exampleInputName2" placeholder="用户名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">原密码</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" name="passwd" class="form-control" id="exampleInputEmail2" placeholder="密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">新密码</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" name="passwdF" class="form-control" id="exampleInputEmail2" placeholder="新密码"  value="<?php echo set_value('passwdF'); ?>">
+                                        <?php echo form_error('passwdF', '<span>', '</span>') ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">确认密码</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" name="passwdS" class="form-control" id="exampleInputEmail2" placeholder="确认密码"  value="<?php echo set_value('passwdS'); ?>">
+                                        <?php echo form_error('passwdS', '<span>', '</span>') ?>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-sm col-md-offset-2 btn-default col-md-2">确定</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="c3" class="content">评论管理</div>
+            <div id="c4" class="content">
+                <div>
+                    <img src = "./111.jpg" />
+                </div>
+            </div>
+            <div id="c5" class="content">系统管理</div>
+            <div id="c6" class="content">帮助信息</div>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<script type="text/javascript">
+window.onload=function(){
+function $(id){return document.getElementById(id)}
+var menu=$("topTags").getElementsByTagName("ul")[0];//顶部菜单容器
+var tags=menu.getElementsByTagName("li");//顶部菜单
+var ck=$("leftMenu").getElementsByTagName("ul")[0].getElementsByTagName("li");//左侧菜单
+var j;
+//点击左侧菜单增加新标签
+for(i=0;i<ck.length;i++){
+ck[i].onclick=function(){
+$("welcome").style.display="none"//欢迎内容隐藏
+//循环取得当前索引
+for(j=0;j<8;j++){
+if(this==ck[j]){
+if($("p"+j)==null){
+openNew(j,this.innerHTML);//设置标签显示文字
+ }
+clearStyle();
+$("p"+j).style.backgroundColor="yellow";
+clearContent();
+$("c"+j).style.display="block";
+   }
+ }
+return false;
+  }
+ }
+//增加或删除标签
+function openNew(id,name){
+var tagMenu=document.createElement("li");
+tagMenu.id="p"+id;
+tagMenu.innerHTML=name+"   "+"<img />";
+//标签点击事件
+tagMenu.onclick=function(evt){
+clearStyle();
+tagMenu.style.backgroundColor="yellow";
+clearContent();
+$("c"+id).style.display="block";
+}
+//标签内关闭图片点击事件
+tagMenu.getElementsByTagName("img")[0].onclick=function(evt){
+evt=(evt)?evt:((window.event)?window.event:null);
+if(evt.stopPropagation){evt.stopPropagation()} //取消opera和Safari冒泡行为;
+this.parentNode.parentNode.removeChild(tagMenu);//删除当前标签
+var color=tagMenu.style.backgroundColor;
+//设置如果关闭一个标签时，让最后一个标签得到焦点
+if(color=="#ffff00"||color=="yellow"){//区别浏览器对颜色解释
+if(tags.length-1>=0){
+clearStyle();
+tags[tags.length-1].style.backgroundColor="yellow";
+clearContent();
+var cc=tags[tags.length-1].id.split("p");
+$("c"+cc[1]).style.display="block";
+ }
+else{
+clearContent();
+$("welcome").style.display="block"
+   }
+  }
+}
+menu.appendChild(tagMenu);
+}
+//清除标签样式
+function clearStyle(){
+for(i=0;i<tags.length;i++){
+menu.getElementsByTagName("li")[i].style.backgroundColor="#FFCC00";
+  }
+}
+//清除内容
+function clearContent(){
+for(i=0;i<7;i++){
+$("c"+i).style.display="none";
+ }
+}
+}
+</script>
+</body>
+</html>

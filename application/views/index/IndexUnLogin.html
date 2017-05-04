@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <!--        <link href="css/login.css" rel="stylesheet" type="text/css" /> -->
+    <link href="<?php echo base_url() . 'style/index/login/'; ?>css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url() . 'style/index/login/'; ?>css/all.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+
+        .login-box {
+            width:360px;
+            margin:10% auto
+        }
+        @media (max-width:768px) {
+            .login-box {
+                width:90%;
+                margin-top:20px
+            }
+        }
+        .login-box-body{
+            background:#fff;
+            padding:20px;
+            border-top:0;
+            color:#666
+        }
+
+        .login-box-msg {
+            margin:0;
+            text-align:center;
+            padding:0 20px 20px 20px
+        }
+        .form-control {
+            border-radius:0;
+            box-shadow:none;
+            border-color:#d2d6de
+        }
+        .form-control:focus {
+            border-color:#3c8dbc;
+            box-shadow:none
+        }
+        .form-control::-moz-placeholder,.form-control:-ms-input-placeholder,.form-control::-webkit-input-placeholder {
+            color:#bbb;
+            opacity:1
+        }
+        .icheck > label {
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body id="photobg" onLoad="createCode();">
+    <div class="login-head container-fluid">
+        <div class="login-head-b col-md-12">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="<?php echo site_url('IndexPage/index'); ?>"><img src="<?php echo base_url() . 'style/index/bg/'; ?>img/favicon.ico"></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="<?php echo site_url('IndexPage/index'); ?>">首页<span class="sr-only">(current)</span></a></li>
+                            <li><a href="<?php echo site_url('IndexBookcase/Bookcase'); ?>">书架</a></li>
+
+                        </ul>
+                   </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+
+    <div class="login-box">
+        <div class="login-box-body">
+            <p class="login-box-msg">注册新的用户 </p>
+            <form action="<?php echo site_url('IndexLogin/register') ?>" method="post">
+                <div class="form-group">
+                    <input id="email" placeholder="用户名" required="" class="form-control" name="username" value="" type="text">
+                </div>
+                <div class="form-group">
+                    <input id="password" placeholder="密码" required="" class="form-control" name="password" type="password">
+                </div>
+                <div class="form-group">
+                    <input id="password" placeholder="邮箱" required="" class="form-control" name="email" type="email">
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <label>
+                                  <input type="checkbox">  记住我
+                                </label>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="<?php echo base_url('style/index/login/') ?>/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('style/index/login/') ?>/js/icheck.min.js"></script>
+<script type="text/javascript">
+      $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
+
+</body>
+</html>
+    

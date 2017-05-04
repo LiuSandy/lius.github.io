@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public1.css' ?>">
+	<title>Document</title>
+	<style type="text/css">
+		span {
+			color : #f00;
+		}
+	</style>
+</head>
+<body>
+	<form action="<?php echo site_url('Admintexiao/edit'); ?>" method="POST" enctype="multipart/form-data">
+		<table class="table">
+			<tr>
+				<td class="th" colspan="10">编辑栏目</td>
+			</tr>
+			<tr>
+				<td>特效名称</td>
+				<td><input type="test" name="sname" value="<?php echo $skin[0]['sname']; ?>" />
+					<?php echo form_error('cname', '<span>', '</span>'); ?>
+				</td>
+			</tr>
+			<tr>
+				<td>路径</td>
+				<td><input type="test" name="spath" value="<?php echo $skin[0]['spath']; ?>" />
+					<?php echo form_error('spath', '<span>', '</span>'); ?>
+				</td>
+			</tr>
+			<tr>
+				<input type="hidden" name="sid" value="<?php echo $skin[0]['sid'] ?>" />
+				<td colspan="10"><input type="submit" value="确定" class="input_button" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

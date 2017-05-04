@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/css.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/manhuaDate.1.0.css">
+
+</head>
+	<style type="text/css">
+		.cname{
+			font-size:20px;
+			color:#00BFFF;
+			float: left;
+			margin-left: 5%;
+			margin-top: 5%;
+			width: 100%;
+		}
+
+		td{
+			width:80%;
+			height: 200px;
+			float: left;
+			margin-left: 10%;
+		}
+		
+
+
+	</style>
+<body>
+	<div id="pageAll">
+		<div class="pageTop">
+			<div class="page">
+				<img src="<?php echo base_url() . 'style/admin/'; ?>img/coin02.png" />
+				<span><a style="font-family:华文楷体" href="<?php echo site_url('IndexAdmin/loadmain'); ?>">首页</a>&nbsp;-&nbsp;
+				<a style="font-family:华文楷体" href="#">资源管理</a>&nbsp;-&nbsp;
+				<a style="font-family:华文楷体" href="#">PDF转换</a></span>
+				<div style="float:right;font-family:华文楷体">
+					今天是：<?php echo date('Y.m.d',time()) ?> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cname">PDF转HTML：</div>
+		<div class="pdftohtml">
+			<form action="<?php echo site_url('Adminziyuan/tran'); ?>" method="POST" enctype="multipart/form-data">	 <div class="cfD">
+					<div class="dpf-left-menu">
+						<table>
+							<tr>
+								<td >
+									
+								</td>
+							</tr>
+						</table>
+						<br/><br/>
+						<button class="button" style="float:left; margin-left:10%;">转换</button>
+					</div>				
+				</div>				
+			</form>
+		</div>	
+</script>
+</script>
+</body>
+</html>

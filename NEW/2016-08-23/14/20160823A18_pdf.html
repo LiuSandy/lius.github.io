@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<!-- Created by pdf2htmlEX (https://github.com/coolwanglu/pdf2htmlex) -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta name="generator" content="pdf2htmlEX"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/20160823A18_pdf.css">\<script src="../../js/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	    document.onmouseup = document.ondbclick= function(){
+	        var txt;
+	        if(document.selection){
+	            txt = document.selection.createRange().text
+	        }else{
+	            txt = window.getSelection()+'';
+	        }
+	        if(txt){
+	            $('#note-body').text(txt);
+	            $('#add-note').modal();
+	        }
+	    }
+	</script>
+<title></title>
+</head>
+<body>
+<div id="sidebar">
+<div id="outline">
+</div>
+</div>
+<div id="page-container">
+<div id="pf1" class="pf w0 h0" data-page-no="1"><div class="pc pc1 w0 h0"><img class="bi x0 y0 w1 h1" alt="" src=".\images\20160823A18_pdf1.png"/><div class="c x1 y1 w0 h2"><div class="t m0 x2 h3 y2 ff1 fs0 fc0 sc0 ls0 ws0">2016<span class="_ _0"> </span>8<span class="_ _0"> </span>23</div><div class="t m0 x3 h4 y3 ff2 fs1 fc1 sc0 ls0 ws0">A18</div><div class="t m0 x4 h5 y4 ff3 fs2 fc0 sc0 ls0 ws0">8<span class="_ _1"> </span>月<span class="_ _1"> </span>22<span class="_ _1"> </span>日<span class="_ _2"></span>是<span class="_ _2"></span>*<span class="_ _2"></span>欣<span class="_ _2"></span>泰<span class="_ _2"></span>停<span class="_ _2"></span>牌<span class="_ _2"></span>前<span class="_ _2"></span>的<span class="_ _2"></span>最<span class="_ _2"></span>后<span class="_ _2"></span>一<span class="_ _2"></span>个<span class="_ _2"></span>交<span class="_ _2"></span>易<span class="_ _2"></span>日<span class="_ _2"></span>，<span class="_ _3"></span>尽</div><div class="t m0 x5 h5 y5 ff3 fs2 fc0 sc0 ls0 ws0">管此<span class="_ _2"></span>前监管<span class="_ _2"></span>层反复<span class="_ _2"></span>提示该<span class="_ _2"></span>股将<span class="_ _4"></span>“一<span class="_ _2"></span>退到底<span class="_ _2"></span>”<span class="_ _4"></span>，<span class="_ _4"></span>然而资<span class="_ _2"></span>金</div><div class="t m0 x5 h5 y6 ff3 fs2 fc0 sc0 ls0 ws0">依然开启<span class="_ _4"></span>“赌<span class="_ _2"></span>博式买入”<span class="_ _4"></span>，<span class="_ _4"></span>该股封涨<span class="_ _2"></span>停收报<span class="_ _5"> </span>3.03<span class="_ _5"> </span>元。业</div><div class="t m0 x5 h5 y7 ff3 fs2 fc0 sc0 ls0 ws0">内<span class="_ _2"></span>人<span class="_ _2"></span>士提<span class="_ _2"></span>醒<span class="_ _2"></span>，<span class="_ _3"></span>欣<span class="_ _2"></span>泰<span class="_ _2"></span>退市<span class="_ _2"></span>几<span class="_ _2"></span>乎<span class="_ _2"></span>是<span class="_ _2"></span>板<span class="_ _2"></span>上钉<span class="_ _2"></span>钉<span class="_ _2"></span>，<span class="_ _3"></span>请<span class="_ _2"></span>投<span class="_ _2"></span>资者<span class="_ _2"></span>保</div><div class="t m0 x5 h5 y8 ff3 fs2 fc0 sc0 ls0 ws0">持理性。<span class="_ _6"> </span>实习生<span class="_ _7"> </span>扬子晚报记者</div></div></div><div class="pi" data-data='{"ctm":[1.000000,0.000000,0.000000,1.000000,0.000000,0.000000]}'></div></div>
+</div>
+<div class="loading-indicator">
+<img alt="" src=".\images\20160823A18_pdf2.png"/>
+</div>
+</body>
+</html>
+<div class="modal fade" id="add-note">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">添加笔记</h4>
+	      </div>
+	       <form action="http://localhost/pdftohtmlsys/index.php/IndexNote/store" method="POST">
+	      <div class="modal-body">
+	       <textarea style="width:100%;min-height:200px;resize:none;" name="note" id="note-body"></textarea>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="submit" class="btn btn-primary">添加</button>
+	      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>

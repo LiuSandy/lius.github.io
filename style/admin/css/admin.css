@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+* {
+	font-size:14px;
+	font-family:'微软雅黑';
+	margin:0px;
+	padding:0px;
+}
+
+li {
+	list-style-type:none;
+}
+a {
+	text-decoration:none;
+	color:blue;
+}
+
+iframe {
+	width:100%;
+	height:100%;
+	border:none;
+	overflow-x: hidden;
+	overflow: auto;
+}
+
+table,th,td {
+	border-collapse:collapse;
+	background:#fff;
+}
+th,td {
+	padding:8px 8px;
+}
+.th {
+	white-space:nowrap;
+	text-align:left;
+	font-size:15px;
+	color: #3B96CB;
+	background: url("../images/1_111219133417_2_03.gif") repeat-x;
+	font-weight: 800;
+}
+.textarea{
+	resize:none;
+	width: 422px;
+	height: 171px;
+}
+img{
+	border:none; 
+	vertical-align:
+	middle;
+}
+
+/*新添加的样式*/
+.table{
+	width:98%;
+	margin-top: 3px;
+	margin-left: 1%;
+	margin-right: 1%;
+	}
+.table,.table td{border:solid 1px #ccc; text-align: left;}
+.table th{border:solid 1px #ccc;width:100px;text-align: center;}
+.table thead tr td{background: #eee;color:#333;}
+
+/*************span小图标样式**************/
+.span_server{
+	background: url("../img/base.png") no-repeat;
+	padding-left: 20px;
+}
+.span_people{
+	background: url("../img/user.png") no-repeat;
+	padding-left: 20px;
+}

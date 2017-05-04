@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>后台首页</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/css.css" />
+	<link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/Bstyle.css">
+</head>
+
+<body>
+	<!-- 头部展示 -->
+	<div class="page">
+        <!-- <img src="<?php echo base_url() . 'style/admin/'; ?>img/coin02.png" /> -->
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home fa-2x" style="color:#87CEEB"></i></li>
+          <li><a href="<?php echo site_url('IndexAdmin/loadmain'); ?>">首页</a></li>
+     
+          <!-- <li class="active"><?php echo date("Y.m.d", time()) ?></li> -->
+        </ol>
+    </div>
+	<!-- 中间展示 -->
+	<div class="page-content clearfix">
+		<!-- main页面样式 -->
+		<div class="state-overview clearfix">
+			<!-- 中间展示部分 -->
+			 <div class="col-lg-3 col-sm-6">
+		        <section class="panel">
+		            <a href="#" title="用户数量">
+		                <div class="symbol terques">
+		                    <i class="fa fa-user fa-5x"></i>
+		                </div>
+		                <div class="value">
+		                    <h1><?php echo count($users) ?></h1>
+		                    <p>用户数量</p>
+		                </div>
+		            </a>
+		        </section>
+		    </div>
+			<div class="col-lg-3 col-sm-6">
+		        <section class="panel">
+		        <a href="<?php echo site_url('MessageAdmin/index'); ?>" title="留言数量">
+		            <div class="symbol red">
+		                <i class="fa fa-envelope-o fa-5x" style="color:#FFF"></i>
+		            </div>
+		            <div class="value">
+		                <h1><?php echo count($send) ?></h1>
+		                <p>留言数量</p>
+		            </div>
+		            </a>
+		        </section>
+		    </div>
+		    <div class="col-lg-3 col-sm-6">
+		        <section class="panel">
+		        <a href="<?php echo site_url('Admintexiao/index'); ?>" title="特效数量">
+		            <div class="symbol yellow">
+		                <i class="fa fa-exchange fa-5x" style="color:#FFF"></i>
+		            </div>
+		            <div class="value">
+		                <h1><?php echo count($skin) ?></h1>
+		                <p>特效数量</p>
+		            </div>
+		            </a>
+		        </section>
+		    </div>
+		    <div class="col-lg-3 col-sm-6">
+		        <section class="panel">
+		        	<a href="<?php echo site_url('BaozhiAdmin/index'); ?>" title="报纸数量">
+		            <div class="symbol blue">
+		                <i class="fa fa-newspaper-o fa-5x" style="color:#FFF"></i>
+		            </div>
+		            <div class="value">
+		                <h1><?php echo count($baozhi) ?></h1>
+		                <p>报纸数量</p>
+		            </div>
+		            </a>
+		        </section>
+		    </div>
+		</div>
+		<!-- main页面样式end -->	
+	</div>
+		<!-- 下面展示 -->
+
+</body>
+</html>

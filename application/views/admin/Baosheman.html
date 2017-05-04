@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>报社管理</title>
+	<link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/css.css" />
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/main.css">
+	<!-- <script type="text/javascript" src="js/page.js" ></script> -->
+	<style type="text/css">
+		span{
+			color:#f00;
+		}  
+	</style>
+</head>
+
+<body>
+	<div class="page">
+        <!-- <img src="<?php echo base_url() . 'style/admin/'; ?>img/coin02.png" /> -->
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home fa-2x" style="color:#87CEEB"></i></li>
+          <li><a href="<?php echo site_url('IndexAdmin/loadmain'); ?>">首页</a></li>
+          <li><a href="#">分类管理</a></li>
+          <li class="active">报社管理</li>
+          <!-- <li class="active"><?php echo date("Y.m.d", time()) ?></li> -->
+        </ol>
+    </div>
+
+	<!-- 添加模块 -->
+
+	<div class="container-fluid border">
+		<br>
+		<form action="<?php echo site_url('BaosheAdmin/add'); ?>" method="POST" enctype="multipart/form-data">
+			<div class="cfD">
+				<input name="noname" class="addUser" type="text" placeholder="填写报社名称" <?php echo set_value('noname'); ?> />
+				<?php echo form_error('noname', '<span>', '</span>'); ?>
+				<button class="button">添加</button>
+			</div>
+		</form>
+		<br><br>
+	</div>
+	<br><br>
+	<!--  表格 显示 -->
+	<div class="container-fluid">
+		<table id="ma" class="table" >
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>报社名称</th>
+                    <!-- <th>有效代码</th> -->
+                    <!-- <th>创建时间</th> -->
+                    <th>操作</th>
+                </tr>
+        	</thead>
+            <tbody>
+            <?php foreach($noname as $v): ?>
+            <tr>
+                <td><?php echo $v['noid'] ?></td>
+                <td><?php echo $v['noname'] ?></td>
+                <!-- <td><?php echo $v['spath'] ?></td> -->
+                <!-- <td><?php echo date("Y-m-d", $v['createdate']) ?></td> -->
+               <td>
+                    <a class="inco-del" href="<?php echo site_url('BaosheAdmin/del/' . $v['noid']);?>">
+                        <i class="fa fa-trash fa-2x" style="color:red;" onclick="return confirm('确定要删除吗？')"></i>
+                    </a>
+                </td>
+            </tr>
+            <?php endforeach ?>
+            </tbody>
+ 		</table>
+	</div>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/jquery-ui.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#ma').dataTable({
+            responsive: true,
+            language: {
+                    "sProcessing": "处理中...",
+                    "sLengthMenu": "显示 _MENU_ 项结果",
+                    "sZeroRecords": "没有匹配结果",
+                    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                    "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                    "sInfoPostFix": "",
+                    "sSearch": "搜索:",
+                    "sUrl": "",
+                    "sEmptyTable": "表中数据为空",
+                    "sLoadingRecords": "载入中...",
+                    "sInfoThousands": ",",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "上页",
+                        "sNext": "下页",
+                        "sLast": "末页"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": 以升序排列此列",
+                        "sSortDescending": ": 以降序排列此列"
+                    }
+                }
+
+        }
+        );
+
+    });
+
+</script>		
+</body>
+</html>

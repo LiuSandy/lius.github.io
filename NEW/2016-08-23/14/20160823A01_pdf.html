@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<!-- Created by pdf2htmlEX (https://github.com/coolwanglu/pdf2htmlex) -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta name="generator" content="pdf2htmlEX"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/20160823A01_pdf.css">\<script src="../../js/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	    document.onmouseup = document.ondbclick= function(){
+	        var txt;
+	        if(document.selection){
+	            txt = document.selection.createRange().text
+	        }else{
+	            txt = window.getSelection()+'';
+	        }
+	        if(txt){
+	            $('#note-body').text(txt);
+	            $('#add-note').modal();
+	        }
+	    }
+	</script>
+<title></title>
+</head>
+<body>
+<div id="sidebar">
+<div id="outline">
+</div>
+</div>
+<div id="page-container">
+<div id="pf1" class="pf w0 h0" data-page-no="1"><div class="pc pc1 w0 h0"><img class="bi x0 y0 w1 h1" alt="" src=".\images\20160823A01_pdf1.png"/><div class="c x1 y1 w0 h2"><div class="t m0 x2 h3 y2 ff1 fs0 fc0 sc0 ls0 ws0">［<span class="_ _0"></span>扬眼<span class="_ _1"> </span>APP<span class="_ _0"></span>］</div><div class="t m1 x3 h4 y3 ff1 fs1 fc0 sc0 ls0 ws0">本<span class="_ _2"></span>周<span class="_ _2"></span>五<span class="_ _2"></span>出<span class="_ _2"></span>伏<span class="_ _2"></span>，<span class="_ _3"></span>周<span class="_ _2"></span>末<span class="_ _2"></span>南<span class="_ _2"></span>京</div><div class="t m1 x4 h4 y4 ff1 fs1 fc0 sc0 ls0 ws0">最高气温只有<span class="_ _1"> </span>30℃</div><div class="t m2 x5 h5 y5 ff2 fs2 fc0 sc0 ls0 ws0">1</div><div class="t m1 x6 h6 y6 ff2 fs3 fc0 sc0 ls0 ws0">025</div><div class="t m1 x7 h7 y7 ff3 fs4 fc1 sc0 ls0 ws0">96096</div><div class="t m1 x8 h8 y8 ff4 fs5 fc0 sc0 ls0 ws0">2016<span class="_ _4"> </span>8</div><div class="t m1 x9 h8 y9 ff4 fs5 fc0 sc0 ls0 ws0">3 48</div><div class="t m1 xa h9 ya ff1 fs6 fc0 sc0 ls0 ws0">YANGTSE<span class="_ _5"> </span>EVENING<span class="_ _5"> </span>POST</div><div class="t m1 x7 ha yb ff1 fs7 fc0 sc0 ls0 ws0">张云雷目前仍未脱离生命危险<span class="_ _6"></span>涉及帝王蟹等品种，<span class="_ _7"></span>案值高达数亿</div></div></div><div class="pi" data-data='{"ctm":[1.000000,0.000000,0.000000,1.000000,0.000000,0.000000]}'></div></div>
+</div>
+<div class="loading-indicator">
+<img alt="" src=".\images\20160823A01_pdf2.png"/>
+</div>
+</body>
+</html>
+<div class="modal fade" id="add-note">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">添加笔记</h4>
+	      </div>
+	       <form action="http://localhost/pdftohtmlsys/index.php/IndexNote/store" method="POST">
+	      <div class="modal-body">
+	       <textarea style="width:100%;min-height:200px;resize:none;" name="note" id="note-body"></textarea>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="submit" class="btn btn-primary">添加</button>
+	      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>

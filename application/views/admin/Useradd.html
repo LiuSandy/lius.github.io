@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>后台用户注册</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/css.css" />
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.min.js"></script>
+</head>
+<body>
+<!-- 用户添加 注册-->
+	<div id="pageAll">
+		<div class="pageTop">
+			<div class="page">
+				<img src="<?php echo base_url() . 'style/admin/'; ?>img/coin02.png" />
+				<span><a style="font-family:华文楷体" href="#">用户管理</a>&nbsp;-&nbsp;<a style="font-family:华文楷体" href="#">用户注册</a>
+				<div style="float:right;font-family:华文楷体">
+					今天是：<?php echo date('Y.m.d',time()) ?> 
+				</div>
+			</div>
+		</div>
+		<div class="page ">
+			<!-- 会员注册页面样式 -->
+			<div class="banneradd bor">
+				<div class="baTopNo">
+					<span>用户注册</span>
+				</div>
+				<form action="<?php echo site_url('UserManAdmin/add'); ?>" method="POST" enctype="multipart/form-data">
+				<div class="baBody">
+					<div class="bbD">
+						用&nbsp;&nbsp;户&nbsp;&nbsp;名：<input name="username" type="text" class="input3" />
+						<?php echo form_error('username', '<span>', '</span>'); ?>
+					</div>
+					<div class="bbD">
+						密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input name="password" type="password" class="input3" />
+						<?php echo form_error('password', '<span>', '</span>'); ?>
+					</div>
+					<div class="bbD">
+						性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<input name="sex" type="text" class="input3" />
+						<?php echo form_error('sex', '<span>', '</span>'); ?>
+					</div>
+					<div class="bbD">
+						Q&nbsp;&nbsp;Q邮箱：<input name="QQ" type="eamil" class="input3" />
+						<?php echo form_error('QQ', '<span>', '</span>'); ?>
+					</div>
+					<div class="bbD">
+							权限选择：
+							<select name="qxsel" class="select">
+								<option>普通用户</option>
+								<option>管理员</option>
+							</select>
+					</div>
+					<div class="bbD">
+							<p class="bbDP">
+								<button class="button">注册</button>
+							</p>
+					</div>
+				</div>
+				</form>
+
+			<!-- 会员注册页面样式end -->
+		</div>
+	</div>
+</body>
+</html>

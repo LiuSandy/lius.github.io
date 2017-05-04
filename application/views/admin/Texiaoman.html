@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>特效</title>
+	<link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/css1.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/font-awesome.min.css" />
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/page.js" ></script>
+	<style type="text/css">
+		span{
+			color:#f00;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="page">
+        <!-- <img src="<?php echo base_url() . 'style/admin/'; ?>img/coin02.png" /> -->
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home fa-2x" style="color:#87CEEB"></i></li>
+          <li><a href="<?php echo site_url('IndexAdmin/loadmain'); ?>">首页</a></li>
+          <li><a href="#">用户管理</a></li>
+          <li class="active">个人设置</li>
+          <!-- <li class="active"><?php echo date("Y.m.d", time()) ?></li> -->
+        </ol>
+    </div>
+
+	<div class="page">
+		<!-- banner页面样式 -->
+		<div class="container-fluid border">
+			<div class="row col-xs-8">
+			<ul class="list-inline">
+			 <form action="<?php echo site_url('Admintexiao/add'); ?>" method="POST" enctype="multipart/form-data">
+				<br><br>
+				<li class="col-md-3">翻页名称<input type="text" name="sname" class="form-control" placeholder="请输入代码对应名称" <?php echo set_value('sname'); ?> />
+           		 <?php echo form_error('sname', '<span>', '</span>'); ?>
+           		 </li>
+				<li class="col-md-3">有效代码<input type="text" name="spath" class="form-control" placeholder="请输入右面提示代码" <?php echo set_value('spath'); ?> />
+            	<?php echo form_error('spath', '<span>', '</span>'); ?>
+            	</li>
+				<br>
+				<li><button class="btn btn-default" type="submit">添加</button></li>
+				</form>
+			</ul>
+			</div>
+		</div>
+
+		<br><br>	
+		<!-- banner 表格 显示 -->
+		<div class="container-fluid">
+			<table id="ma" class="table" >
+	            <thead>
+	                <tr>
+	                    <th>序号</th>
+	                    <th>翻页名称</th>
+	                    <th>有效代码</th>
+	                    <!-- <th>创建时间</th> -->
+	                    <th>操作</th>
+	                </tr>
+	        	</thead>
+	            <tbody>
+	            <?php foreach($sname as $v): ?>
+	            <tr>
+	                <td><?php echo $v['sid'] ?></td>
+	                <td><?php echo $v['sname'] ?></td>
+	                <td><?php echo $v['spath'] ?></td>
+	                <!-- <td><?php echo date("Y-m-d", $v['createdate']) ?></td> -->
+	               <td>
+	                    <a class="inco" href="<?php echo site_url('Admintexiao/edit_cate/' . $v['sid']);?>">
+	                        <i class="fa fa-pencil-square-o fa-2x" style="color:#00a65a;"></i>
+	                    </a>
+	                    <a class="inco-del" href="<?php echo site_url('Admintexiao/del/' . $v['sid']);?>">
+	                        <i class="fa fa-trash fa-2x" style="color:#dd4b39;" onclick="return confirm('确定要删除吗？')"></i>
+	                    </a>
+	                </td>
+	            </tr>
+	            <?php endforeach ?>
+	            </tbody>
+     		</table>
+		</div>
+			<!-- banner 表格 显示 end-->
+			<!-- 分页显示 -->
+		</div>
+		<!-- banner页面样式end -->
+	</div>
+
+	<!-- 删除弹出框 -->
+	<div class="banDel">
+		<div class="delete">
+			<div class="close">
+				<a><img src="<?php echo base_url() . 'style/admin/'; ?>img/shanchu.png" /></a>
+			</div>
+			<p class="delP1">你确定要删除此条记录吗？</p>
+			<p class="delP2">
+				<a href="#" class="ok yes">确定</a><a class="ok no">取消</a>
+			</p>
+		</div>
+	</div>
+	<!-- 删除弹出框  end-->
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/jquery-ui.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url() . 'style/admin/'; ?>js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#ma').dataTable({
+            responsive: true,
+            language: {
+                    "sProcessing": "处理中...",
+                    "sLengthMenu": "显示 _MENU_ 项结果",
+                    "sZeroRecords": "没有匹配结果",
+                    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                    "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                    "sInfoPostFix": "",
+                    "sSearch": "搜索:",
+                    "sUrl": "",
+                    "sEmptyTable": "表中数据为空",
+                    "sLoadingRecords": "载入中...",
+                    "sInfoThousands": ",",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "上页",
+                        "sNext": "下页",
+                        "sLast": "末页"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": 以升序排列此列",
+                        "sSortDescending": ": 以降序排列此列"
+                    }
+                }
+
+        }
+        );
+
+    });
+
+</script>
+<script type="text/javascript">
+// 广告弹出框
+$(".delban").click(function(){
+  $(".banDel").show();
+});
+$(".close").click(function(){
+  $(".banDel").hide();
+});
+$(".no").click(function(){
+  $(".banDel").hide();
+});
+// 广告弹出框 end
+</script>
+</body>
+</html>

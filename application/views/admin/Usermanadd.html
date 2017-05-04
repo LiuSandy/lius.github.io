@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员注册-有点</title>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/css.css" />
+<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>js/jquery.min.js"></script>
+</head>
+<body>
+	<div id="pageAll">
+		<div class="pageTop">
+			<div class="page">
+				<img src="<?php echo base_url() . 'style/admin/'; ?>img/coin02.png" />
+				<span><a style="font-family:华文楷体" href="#">首页</a>&nbsp;-&nbsp;<a style="font-family:华文楷体" href="#">公共管理</a>&nbsp;-</span>&nbsp;会员注册
+				<div style="float:right;font-family:华文楷体">
+					今天是：<?php echo date('Y.m.d',time()) ?> 
+				</div>
+			</div>
+		</div>
+		<div class="page ">
+			<!-- 会员注册页面样式 -->
+			<form action="<?php echo site_url('Adminyonghu/usermanadd'); ?>" method="POST" enctype="multipart/form-data">
+			<div class="banneradd bor">
+				<div class="baTopNo">
+					<span>用户注册</span>
+				</div>
+				<div class="baBody">
+					<div class="bbD">
+						用户名：<input name="username" type="text" class="input3" <?php echo set_value('username'); ?>/>
+						
+					</div>
+					<div class="bbD">
+						&nbsp;&nbsp;&nbsp;密码：<input name="password" type="password" class="input3" <?php echo set_value('password'); ?>/>
+					</div>
+					<div class="bbD">
+						<p class="bbDP">
+							<a class="btn_ok btn_yes" href="#">注册</a> 
+							<a class="btn_ok btn_no" href="#">取消</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- 会员注册页面样式end -->
+		</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>密码修改</title>
+	 <link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() . 'style/admin/'; ?>css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/'; ?>css/css.css" />
+	<script type="text/javascript" src="<?php echo base_url() . 'style/admin/'; ?>css/jquery.min.js"></script>
+	<style type="text/css">
+		span {
+			color: #f00;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="page">
+        <!-- <img src="<?php echo base_url() . 'style/admin/'; ?>img/coin02.png" /> -->
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home fa-2x" style="color:#87CEEB"></i></li>
+          <li><a href="<?php echo site_url('IndexAdmin/loadmain'); ?>">首页</a></li>
+          <li><a href="#">用户管理</a></li>
+          <li class="active">个人设置</li>
+          <!-- <li class="active"><?php echo date("Y.m.d", time()) ?></li> -->
+        </ol>
+    </div>
+    <div class="container-fluid">
+				<!-- 左侧显示用户个人信息 -->
+		<div class="col-md-5">
+			<div class="border">
+				<div class="font">用户信息</div>					
+				<div class="information">用户名：&nbsp;&nbsp;<?php echo $this->session->userdata('username') ?></div>
+				<div class="information">性别：&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->userdata('sex') ?></div>
+				<div class="information">QQ：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->userdata('QQ') ?></div>
+				<div class="information">权限：&nbsp;&nbsp;&nbsp;&nbsp;管理员</div>
+				<div class="information">注册时间：<?php echo $this->session->userdata('logintime')?></div>
+				<div class="change">
+					<a href="<?php echo site_url('changeInfor/edit_cate/' . $this->session->userdata('uid')); ?>"
+					style="color: #fff;">修改信息</a></div>
+			</div>
+		</div>
+		<!-- 右侧修改密码 -->
+		<div class="col-md-6">
+			<div class="">
+				<div class="baTopNo">
+					<span style="font-family:华文楷体;color:#000;">密码修改</span>
+				</div>
+				<div class="baBody">
+					<form action="<?php echo site_url('AdminChange/change_passwd') ?>" method="POST">
+					<div class="bbD">
+						&nbsp;&nbsp;用户名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->userdata('username') ?>
+					</div>
+					<div class="bbD">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码：
+						<input type="password" name="passwd" class="input3" />
+					</div>
+					<div class="bbD">
+						&nbsp;&nbsp;新密码：
+						<input type="password" name="passwdF" class="input3" value="<?php echo set_value('passwdF'); ?>"/>
+						<?php echo form_error('passwdF', '<span>', '</span>') ?>
+					</div>
+					<div class="bbD">
+						确认密码:&nbsp;
+						<input type="password" name="passwdS" class="input3" value="<?php echo set_value('passwdS'); ?>"/>
+						<?php echo form_error('passwdS', '<span>', '</span>') ?>
+					</div>
+					<div class="bbD">
+						<p class="bbDP">
+							<button type="submit" class="btn_ok btn_yes" value="确认">确认</button>
+							<a class="btn_ok btn_no" href="<?php echo site_url('AdminChange/change') ?>">取消</a>
+						</p>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
